@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0302E2E"
+    tools:context=".appdetails" >
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Our app is designed to provide you with peace of mind and added security no matter where you are. When you sign up for the app, you'll be asked to provide your details . In addition, you'll be prompted to designate a friend or family member who will act as your emergency helper. This person will be notified in the event that you activate the timer feature in the app.  The timer feature is a powerful tool that can help keep you safe in a variety of situations. If you feel threatened or in danger, you can activate the timer, and if it is not turned off within 30 minutes, our app will automatically send your location and a message asking for help to your designated emergency helper."
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+</FrameLayout>

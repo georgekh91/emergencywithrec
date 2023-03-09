@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "239802892202",
+    "firebase_url": "https://labmeeet-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "labmeeet",
+    "storage_bucket": "labmeeet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239802892202:android:c702c3e1c5c69dcea675d3",
+        "android_client_info": {
+          "package_name": "com.example.georgesproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239802892202-uemn74odek5s34f3a66gv7vt1vanok4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeuwZZJEjx3m95x6gJeDbMpXE4AqA7deQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239802892202-uemn74odek5s34f3a66gv7vt1vanok4p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239802892202:android:d2f022f70f0cd2f3a675d3",
+        "android_client_info": {
+          "package_name": "com.example.lab1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239802892202-uemn74odek5s34f3a66gv7vt1vanok4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeuwZZJEjx3m95x6gJeDbMpXE4AqA7deQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239802892202-uemn74odek5s34f3a66gv7vt1vanok4p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
