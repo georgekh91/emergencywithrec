@@ -2,6 +2,7 @@ package com.example.georgesproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -16,6 +17,7 @@ public class ContentActivity extends AppCompatActivity {
     private boolean running;
 
     private boolean wasRunning;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,52 +40,49 @@ public class ContentActivity extends AppCompatActivity {
     }
 
 
-        private void runTimer ()
-        {
+    private void runTimer() {
 
 
-            final TextView timeView
-                    = (TextView) findViewById(
-                    R.id.time_view);
+        final TextView timeView
+                = (TextView) findViewById(
+                R.id.time_view);
 
 
-            final Handler handler
-                    = new Handler();
+        final Handler handler
+                = new Handler();
 
 
-            handler.post(new Runnable() {
-                @Override
+        handler.post(new Runnable() {
+            @Override
 
-                public void run() {
-                    int hours = seconds / 3600;
-                    int minutes = (seconds % 3600) / 60;
-                    int secs = seconds % 60;
-
-
-                    String time
-                            = String
-                            .format(Locale.getDefault(),
-                                    "%d:%02d:%02d", hours,
-                                    minutes, secs);
+            public void run() {
+                int hours = seconds / 3600;
+                int minutes = (seconds % 3600) / 60;
+                int secs = seconds % 60;
 
 
-                    timeView.setText(time);
+                String time
+                        = String
+                        .format(Locale.getDefault(),
+                                "%d:%02d:%02d", hours,
+                                minutes, secs);
 
 
-                    if (running) {
-                        seconds++;
-                    }
+                timeView.setText(time);
 
 
-                    handler.postDelayed(this, 1000);
+                if (running) {
+                    seconds++;
                 }
-            });
-        }
 
 
+                handler.postDelayed(this, 1000);
+            }
+        });
+    }
 
-    public void onSaveinstancestate(Bundle savedInstanceState)
-    {
+
+    public void onSaveinstancestate(Bundle savedInstanceState) {
         savedInstanceState
                 .putInt("seconds", seconds);
         savedInstanceState
@@ -94,8 +93,7 @@ public class ContentActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onPause ()
-    {
+    protected void onPause() {
         super.onPause();
         wasRunning = running;
         running = false;
@@ -103,8 +101,7 @@ public class ContentActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onResume ()
-    {
+    protected void onResume() {
         super.onResume();
         if (wasRunning) {
             running = true;
@@ -142,5 +139,10 @@ public class ContentActivity extends AppCompatActivity {
     public void onClickReset(View view) {
         running = false;
         seconds = 0;
+    }
+
+    public void onClickAddEmergencyPerson(View view) {
+        Intent intent = new Intent(ContentActivity.this, AddEmergencyPerson.class);
+        startActivity(intent);
     }
 }

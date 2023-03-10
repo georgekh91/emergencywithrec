@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">George\'sProject</string>
+    <string name="app_name">George\'s Project</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="reset">Reset</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="authentication_failed">Authentication failed.</string>
 
 
 </resources>

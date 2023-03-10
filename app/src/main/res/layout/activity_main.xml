@@ -32,10 +32,22 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/password_incorrect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/authentication_failed"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        android:visibility="gone"
+        />
+
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:ems="10"
         android:fontFamily="cursive"
         android:hint="Email..."
@@ -70,8 +82,9 @@
         android:text="create account" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/forget_password"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
         android:layout_width="187dp"
         android:layout_height="wrap_content"
-        android:text="forgetpssword" />
+        android:text="@string/forgot_password" />
 </LinearLayout>

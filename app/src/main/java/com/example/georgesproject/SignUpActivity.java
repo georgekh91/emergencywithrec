@@ -14,12 +14,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Optional;
+
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
-    private FirebaseDatabase db;
-    private DatabaseReference ref;
+    private static final FirebaseDatabase db = FirebaseDatabase.getInstance();
+    private static final DatabaseReference usersRef = db.getReference("users");
     EditText name, email, password;
     Button signup;
     FirebaseAuth mAuth;
@@ -33,8 +36,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         signup = findViewById(R.id.signup);
         mAuth = FirebaseAuth.getInstance();
         signup.setOnClickListener(this);
-        db= FirebaseDatabase.getInstance();
-        ref = db.getReference("needs to be filledw");
     }
 
     @Override
@@ -51,10 +52,21 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                User user = new User(name.getText().toString(), email, password);
+
+                                String currentUserUid = null;
+
+                                if (mAuth.getCurrentUser() != null) {
+                                    currentUserUid = mAuth.getCurrentUser().getUid();
+                                } else {
+                                    Toast.makeText(SignUpActivity.this, "Couldn't create account", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+
+                                usersRef.child(currentUserUid).setValue(user);
+
                                 Intent intent = new Intent(SignUpActivity.this, ContentActivity.class);
                                 startActivity(intent);
-                                User user = new User(name.getText().toString(), email, password);
-                                ref.child("needs to be filled ").child(mAuth.getCurrentUser().getUid()).setValue(user);
                             } else {
                                 Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();

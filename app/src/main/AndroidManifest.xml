@@ -9,16 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeorgesProject">
         <activity
-            android:name=".changecode"
-            android:exported="false" />
-        <activity
-            android:name=".codeforrest"
-            android:exported="false" />
-        <activity
-            android:name=".forget"
+            android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddEmergencyPerson"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
