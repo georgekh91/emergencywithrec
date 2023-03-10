@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="128dp"
         android:fontFamily="casual"
         android:gravity="center_horizontal"
         android:text="Your safety is just a tap away with our emergency app"
@@ -79,5 +79,12 @@
         android:layout_below="@id/buttonsLayout"
         android:onClick="onClickAddEmergencyPerson"
         android:text="Add Emergency Person" />
+
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
 </RelativeLayout>
