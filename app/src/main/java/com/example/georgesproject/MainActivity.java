@@ -81,10 +81,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void signIn(String email, String password) {
+        if (mEmailEditText.getText().toString().trim().length() == 0 ||
+                mPasswordEditText.getText().toString().trim().length() == 0
+        ) {
+            Toast.makeText(MainActivity.this, "Missing fields.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
                             Intent intent = new Intent(MainActivity.this, ContentActivity.class);
                             startActivity(intent);

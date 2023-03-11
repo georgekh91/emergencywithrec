@@ -148,6 +148,7 @@ public class ContentActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
     }
 
     private void runTimer() {
