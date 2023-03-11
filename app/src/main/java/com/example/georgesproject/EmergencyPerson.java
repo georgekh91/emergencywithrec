@@ -1,5 +1,7 @@
 package com.example.georgesproject;
 
+import androidx.annotation.NonNull;
+
 public class EmergencyPerson {
 
     private String name;
@@ -28,3 +30,5 @@ public class EmergencyPerson {
     }
 
 }
+
+

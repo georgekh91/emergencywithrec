@@ -15,7 +15,7 @@ public class EmailUtils {
 
     private static final String SENDER_EMAIL = "georgesproject0@gmail.com";
     private static final String SENDER_PASS = "escslngyoytmkgzj";
-
+// for the email link
     public static void sendEmail(String receiverEmail, String content) {
         try {
             String stringHost = "smtp.gmail.com";
@@ -36,7 +36,7 @@ public class EmailUtils {
             MimeMessage mimeMessage = new MimeMessage(session);
             mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(receiverEmail));
 
-            mimeMessage.setSubject("(George's Project) Reset your password");
+            mimeMessage.setSubject("(George's Project) Your friend is in danger!");
             mimeMessage.setText(content);
 
             Thread thread = new Thread(new Runnable() {
