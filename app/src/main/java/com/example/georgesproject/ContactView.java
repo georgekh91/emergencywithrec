@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 public class ContactView extends LinearLayout {
 
     public ContactView(Context context, Contact contact) {
@@ -16,5 +15,6 @@ public class ContactView extends LinearLayout {
 
         nameTextView.setText(contact.getName());
         emailTextView.setText(contact.getEmail());
+
     }
 }
