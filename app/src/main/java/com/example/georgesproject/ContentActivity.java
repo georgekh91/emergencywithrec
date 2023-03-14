@@ -194,16 +194,40 @@ public class ContentActivity extends AppCompatActivity {
         });
     }
 
+    //private Location getLastKnownLocation() {
+    //    LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+    //    // Check if location permissions are granted
+    //    if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+    //        // Get the last known location from the provider
+    //        return locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+    //    }
+
+    //    return null;
+    //}
+
     private Location getLastKnownLocation() {
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        List<String> providers = locationManager.getProviders(true);
+        Location bestLocation = null;
+        for (String provider : providers) {
+            Location l = null;
 
-        // Check if location permissions are granted
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            // Get the last known location from the provider
-            return locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            try {
+                l = locationManager.getLastKnownLocation(provider);
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            }
+
+            if (l == null) {
+                continue;
+            }
+            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                // Found best last known location: %s", l);
+                bestLocation = l;
+            }
         }
-
-        return null;
+        return bestLocation;
     }
 
     private void sendEmailToContacts() {
@@ -212,20 +236,22 @@ public class ContentActivity extends AppCompatActivity {
         }
 
         Location location = getLastKnownLocation();
-        String locationString = "Unknown";
+        String locationString = "Unknown", googleMapsLink = "Unavailable";
 
         if (location != null) {
-            locationString = String.format("(%.2f, %.2f)", location.getLatitude(), location.getLongitude());
+            locationString = String.format(Locale.US, "(%.2f, %.2f)", location.getLatitude(), location.getLongitude());
+            googleMapsLink = String.format(Locale.US, "https://maps.google.com/?q=%f,%f", location.getLatitude(), location.getLongitude());
         }
 
-        String emailContent = "Hello %s, your friend %s is in danger. Last known location: %s";
+        String emailContent = "Hello %s, your friend %s is in danger. Last known location: %s\nGoogle maps: %s";
 
         for (Contact contact : contactList) {
             String emailBody = String.format(
                     emailContent,
                     contact.getName(),
                     mAuth.getCurrentUser().getEmail(),
-                    locationString
+                    locationString,
+                    googleMapsLink
             );
             EmailUtils.sendEmail(contact.getEmail(), emailBody);
         }
