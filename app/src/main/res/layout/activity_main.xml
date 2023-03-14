@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0302E2E"
+    android:background="@drawable/emi"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -14,28 +14,34 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:backgroundTint="@color/black"
-        android:fontFamily="casual"
+        android:fontFamily="cursive"
         android:gravity="center"
         android:text="Sign In"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp" />
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/black"
         android:fontFamily="casual"
         android:gravity="center"
         android:text="Your safety is our top priority"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/password_incorrect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:fontFamily="casual"
         android:gravity="center"
         android:text="@string/authentication_failed"
@@ -48,43 +54,61 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
         android:ems="10"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
         android:hint="Email..."
         android:inputType="textEmailAddress"
         android:shadowColor="#FFFFFF"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
         android:ems="10"
         android:fontFamily="casual"
         android:hint="password..."
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHighlight="#F8F8F8"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/signin"
         style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
         android:layout_width="94dp"
         android:layout_height="wrap_content"
-        android:text="signin" />
+        android:text="signin"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/create"
         style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="create account" />
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="create account"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/forget_password"
         style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
         android:layout_width="187dp"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_password" />
+        android:text="@string/forgot_password"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 </LinearLayout>

@@ -14,12 +14,13 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="casual"
+        android:fontFamily="cursive"
         android:gravity="center"
         android:text="Sign Up"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        android:textSize="34sp" />
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView2"
@@ -30,7 +31,8 @@
         android:text="Safety first  sign up to our emergency app for peace of mind"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/name"
@@ -41,7 +43,8 @@
         android:hint="Name"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/email"
@@ -53,7 +56,8 @@
         android:inputType="textEmailAddress"
         android:shadowColor="#FFFCFC"
         android:textColor="#FEFEFE"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/password"
@@ -64,7 +68,8 @@
         android:hint="password"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/signup"
@@ -72,5 +77,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="signup"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 </LinearLayout>
