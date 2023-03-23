@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="-40dp"
         android:backgroundTint="@color/black"
@@ -86,7 +86,7 @@
         android:id="@+id/signup"
         style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="67dp"
         android:layout_marginTop="500dp"
         android:layout_marginBottom="-350dp"
         android:text="signup"
