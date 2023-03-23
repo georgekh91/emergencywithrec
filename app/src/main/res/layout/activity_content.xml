@@ -18,12 +18,13 @@
         android:layout_height="43dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="128dp"
-        android:fontFamily="casual"
+        android:fontFamily="serif-monospace"
         android:gravity="center_horizontal"
         android:text="Your safety is just a tap away with our emergency app"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/time_view"
