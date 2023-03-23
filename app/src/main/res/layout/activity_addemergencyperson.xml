@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/emi"
     tools:context=".AddEmergencyPerson">
 
     <FrameLayout
@@ -32,7 +33,9 @@
             android:fontFamily="casual"
             android:hint="Email..."
             android:inputType="textEmailAddress"
-            android:textColorHint="#FFFFFF"
+            android:textColor="#FFC107"
+            android:textColorHighlight="#FFC107"
+            android:textColorHint="#FFC107"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
@@ -44,6 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:text="add"
+            android:textColor="#FFC107"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
@@ -60,9 +65,9 @@
             android:fontFamily="casual"
             android:hint="Name..."
             android:inputType="textPersonName"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="#000000"
-            android:textColorHint="#FFFFFF"
+            android:textColor="#FFC107"
+            android:textColorHighlight="#FFC107"
+            android:textColorHint="#FFC107"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,18 +75,18 @@
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="380dp"
-            android:layout_height="43dp"
+            android:layout_width="315dp"
+            android:layout_height="67dp"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="22dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginBottom="22dp"
             android:fontFamily="casual"
             android:gravity="center_horizontal"
             android:text="I feel secure knowing that Person's  is my designated emergency contact and will be there to assist me in any crisis"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="#FFC107"
+            android:textColorHint="#000000"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
             app:layout_constraintEnd_toEndOf="parent"

@@ -8,6 +8,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_gravity="center"
+        android:textColor="#000000"
         android:layout_weight="1"
         android:gravity="left" />
 
@@ -16,6 +17,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="1"
+        android:textColor="#000000"
         android:gravity="left"
         android:id="@+id/contactEmailTV"
         />

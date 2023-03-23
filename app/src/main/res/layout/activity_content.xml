@@ -3,21 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F0302E2E"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ddd"
     tools:context=".ContentActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"></LinearLayout>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="128dp"
         android:fontFamily="casual"
         android:gravity="center_horizontal"
         android:text="Your safety is just a tap away with our emergency app"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         android:textSize="16sp" />
 
     <TextView
@@ -33,12 +38,12 @@
 
 
     <RelativeLayout
+        android:id="@+id/buttonsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/time_view"
-        android:gravity="center_horizontal"
-        android:id="@+id/buttonsLayout"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal">
 
 
         <Button
@@ -46,6 +51,7 @@
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#000000"
             android:onClick="onClickStart"
             android:text="@string/start" />
 
@@ -56,6 +62,7 @@
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#000000"
             android:layout_marginLeft="25dp"
             android:layout_toEndOf="@id/button"
             android:onClick="onClickStop"
@@ -66,6 +73,7 @@
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#000000"
             android:layout_marginLeft="25dp"
             android:layout_toEndOf="@id/stop_button"
             android:onClick="onClickReset"
@@ -73,10 +81,11 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/addContactButton"
         style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/addContactButton"
+        android:textColor="#000000"
         android:layout_below="@id/buttonsLayout"
         android:onClick="onClickAddEmergencyPerson"
         android:text="Add Emergency Person" />
@@ -84,14 +93,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/addContactButton"
-        >
+        android:layout_below="@id/addContactButton">
+
         <LinearLayout
+            android:id="@+id/contactsview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/contactsview"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
         </LinearLayout>
 
