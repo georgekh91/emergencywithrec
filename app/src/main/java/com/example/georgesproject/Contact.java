@@ -1,7 +1,5 @@
 package com.example.georgesproject;
 
-import android.widget.ImageView;
-
 public class Contact {
     private final String name;
     private final String email;

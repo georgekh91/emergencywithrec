@@ -41,7 +41,7 @@ public class ContentActivity extends AppCompatActivity {
     private static final FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     private static final DatabaseReference contactsRef = db.getReference("contacts");
-
+// الثواني المطلوبه
     //    private static final int SEND_AT_SECONDS = 1800;
     private static final int SEND_AT_SECONDS = 10;
 
@@ -55,7 +55,7 @@ public class ContentActivity extends AppCompatActivity {
 
     private boolean wasRunning;
 
-    @Override // timer
+    @Override // timer لانشاء ال
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
@@ -123,7 +123,8 @@ public class ContentActivity extends AppCompatActivity {
 
     }
 
-    @Override // options xml
+    @Override // options xml للانشاء
+    // وابضا مينو
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.options, menu);
@@ -133,14 +134,16 @@ public class ContentActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item3: { // logout
+            case R.id.item3: { // logout الموجوده في الثلاث نقاط
+                //انتقال صفحات
                 Intent intent = new Intent(ContentActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 return true;
             }
-            case R.id.item2: //about us
+            case R.id.item2: //about us الموجوده في الثلاث نقاط
             {
+                // انتقال صفحات
                 Intent intent = new Intent(ContentActivity.this, AboutUsActivity.class);
                 startActivity(intent);
                 return true;
@@ -151,6 +154,7 @@ public class ContentActivity extends AppCompatActivity {
 
     }
 
+ // تشغيل التايمر
     private void runTimer() {
 
 
@@ -206,6 +210,7 @@ public class ContentActivity extends AppCompatActivity {
     //    return null;
     //}
 
+    // يتم اخذ اخر لوكيشن عبره
     private Location getLastKnownLocation() {
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         List<String> providers = locationManager.getProviders(true);
@@ -229,17 +234,18 @@ public class ContentActivity extends AppCompatActivity {
         }
         return bestLocation;
     }
-
+// يتم ارسال الموقع ورساله هنا
     private void sendEmailToContacts() {
         if (mAuth.getCurrentUser() == null) {
             return;
         }
-
+// اذا لم يعطي البريمشن يدخل هنا
         Location location = getLastKnownLocation();
         String locationString = "Unknown", googleMapsLink = "Unavailable";
 
+
         if (location != null) {
-            locationString = String.format(Locale.US, "(%.2f, %.2f)", location.getLatitude(), location.getLongitude());
+            locationString = String.format(Locale.US, "(%f, %f)", location.getLatitude(), location.getLongitude());
             googleMapsLink = String.format(Locale.US, "https://maps.google.com/?q=%f,%f", location.getLatitude(), location.getLongitude());
         }
 
@@ -266,7 +272,7 @@ public class ContentActivity extends AppCompatActivity {
                 .putBoolean("wasRunning", wasRunning);
     }
 
-
+// لتوقيف التايمر
     @Override
     protected void onPause() {
         super.onPause();
@@ -274,7 +280,7 @@ public class ContentActivity extends AppCompatActivity {
         running = false;
     }
 
-
+// لاعاده تشغيله
     @Override
     protected void onResume() {
         super.onResume();
@@ -297,6 +303,7 @@ public class ContentActivity extends AppCompatActivity {
     }
 
     public void onClickAddEmergencyPerson(View view) {
+        // تبديل صفحات للدخول الى اضافه شخص للحمايه
         Intent intent = new Intent(ContentActivity.this, AddEmergencyPerson.class);
         startActivity(intent);
     }

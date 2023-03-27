@@ -1,9 +1,7 @@
 package com.example.georgesproject;
 
-import androidx.annotation.NonNull;
-
 public class EmergencyPerson {
-
+////تعاريف عشان الحفخظ
     private String name;
 
     private String email;

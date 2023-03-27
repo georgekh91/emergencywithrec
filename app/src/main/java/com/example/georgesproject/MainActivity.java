@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mEmailEditText, mPasswordEditText;
 
     private Button mSignIn, mCreateAccount, mForgotPassword;
-
+// زي toast
     private TextView mPasswordIncorrectMessage;
 
     private static final FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSignIn.setOnClickListener(this);
         mCreateAccount.setOnClickListener(this);
         mForgotPassword.setOnClickListener(this);
+//هاي بتخلي يوخد ال permission عشان الgps
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_REQUEST_ID);
@@ -70,17 +71,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (mSignIn == view) {
+            // لتسجيل الدخزل
             signIn(mEmailEditText.getText().toString(), mPasswordEditText.getText().toString());
         } else if (mCreateAccount == view) {
+        //نقل صفحات
             Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
             startActivity(intent);
         } else if (mForgotPassword == view) {
+            //نقل صفحات
             Intent intent = new Intent(MainActivity.this, ForgotPasswordActivity.class);
             startActivity(intent);
         }
     }
 
     public void signIn(String email, String password) {
+        // فحص الايميل
         if (mEmailEditText.getText().toString().trim().length() == 0 ||
                 mPasswordEditText.getText().toString().trim().length() == 0
         ) {
@@ -93,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
+                            //نقل صفحات
                             Intent intent = new Intent(MainActivity.this, ContentActivity.class);
                             startActivity(intent);
                         } else {

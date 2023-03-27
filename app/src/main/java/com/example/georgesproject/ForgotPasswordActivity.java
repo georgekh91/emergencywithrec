@@ -33,7 +33,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     private EditText mEmailEditText;
     private Button mSubmitButton;
-
+// يمرق على الايميلل ويلاقي بال firebase
     private final View.OnClickListener mSubmitButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -45,11 +45,11 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                             boolean emailExistsInDb = snapshot.exists();
 
                             if (!emailExistsInDb) return;
-
+// بطلع من الاكتفيتي على الساين ان
                             OnCompleteListener<Void> onCompleteListener = (OnCompleteListener<Void>) task -> {
                                 ForgotPasswordActivity.this.finish();
                             };
-
+// ببعت رساله لانو مزبطش
                             OnFailureListener onFailureListener = (OnFailureListener) task -> {
                                 Toast.makeText(ForgotPasswordActivity.this, "Couldn't send reset email", Toast.LENGTH_SHORT).show();
                             };

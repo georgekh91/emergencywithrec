@@ -23,6 +23,7 @@ import java.util.Optional;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     private static final FirebaseDatabase db = FirebaseDatabase.getInstance();
     private static final DatabaseReference usersRef = db.getReference("users");
+   // تعاريف
     EditText name, email, password;
     Button signup;
     FirebaseAuth mAuth;
@@ -39,12 +40,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
+    //ازا تم الكبس على انشاء حساب
     public void onClick(View view) {
         if (signup == view){
             createAccount(email.getText().toString(), password.getText().toString());
         }
     }
 
+    // لانشاء حساب جديد
     public void createAccount(String email, String password) {
         if (email != null && password != null) {
             mAuth.createUserWithEmailAndPassword(email, password)
@@ -59,15 +62,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 if (mAuth.getCurrentUser() != null) {
                                     currentUserUid = mAuth.getCurrentUser().getUid();
                                 } else {
+                                    // رساله اذا غلط
                                     Toast.makeText(SignUpActivity.this, "Couldn't create account", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
 
                                 usersRef.child(currentUserUid).setValue(user);
-
+// نقل بين صفحه الانشاء لصفحه الرئيسيه
                                 Intent intent = new Intent(SignUpActivity.this, ContentActivity.class);
                                 startActivity(intent);
                             } else {
+                                // رساله ازا غلط
                                 Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
                             }
