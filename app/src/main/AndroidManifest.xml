@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeorgesProject">
         <activity
+            android:name=".showprofiledetails"
+            android:exported="false" />
+        <activity
+            android:name=".editemergencyperson"
+            android:exported="false" />
+        <activity
+            android:name=".editprofile"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity

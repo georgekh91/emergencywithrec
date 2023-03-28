@@ -41,7 +41,7 @@ public class ContentActivity extends AppCompatActivity {
     private static final FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     private static final DatabaseReference contactsRef = db.getReference("contacts");
-// الثواني المطلوبه
+    // الثواني المطلوبه
     //    private static final int SEND_AT_SECONDS = 1800;
     private static final int SEND_AT_SECONDS = 10;
 
@@ -50,6 +50,7 @@ public class ContentActivity extends AppCompatActivity {
     private final List<Contact> contactList = new ArrayList<>();
 
     private int seconds = 0;
+
 
     private boolean running;
 
@@ -61,7 +62,6 @@ public class ContentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content);
 
         contactsView = findViewById(R.id.contactsview);
-
         if (savedInstanceState != null) {
 
             seconds
@@ -148,13 +148,27 @@ public class ContentActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             }
+            case R.id.item4: //editprofile
+                //
+            {
+                Intent intent = new Intent(ContentActivity.this, editprofile.class);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.item5: //show profiledetails
+                //
+            {
+                Intent intent = new Intent(ContentActivity.this, showprofiledetails.class);
+                startActivity(intent);
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
 
     }
 
- // تشغيل التايمر
+    // تشغيل التايمر
     private void runTimer() {
 
 
@@ -234,7 +248,8 @@ public class ContentActivity extends AppCompatActivity {
         }
         return bestLocation;
     }
-// يتم ارسال الموقع ورساله هنا
+
+    // يتم ارسال الموقع ورساله هنا
     private void sendEmailToContacts() {
         if (mAuth.getCurrentUser() == null) {
             return;
@@ -272,7 +287,7 @@ public class ContentActivity extends AppCompatActivity {
                 .putBoolean("wasRunning", wasRunning);
     }
 
-// لتوقيف التايمر
+    // لتوقيف التايمر
     @Override
     protected void onPause() {
         super.onPause();
@@ -280,7 +295,7 @@ public class ContentActivity extends AppCompatActivity {
         running = false;
     }
 
-// لاعاده تشغيله
+    // لاعاده تشغيله
     @Override
     protected void onResume() {
         super.onResume();
@@ -305,6 +320,12 @@ public class ContentActivity extends AppCompatActivity {
     public void onClickAddEmergencyPerson(View view) {
         // تبديل صفحات للدخول الى اضافه شخص للحمايه
         Intent intent = new Intent(ContentActivity.this, AddEmergencyPerson.class);
+        startActivity(intent);
+    }
+
+    public void onClickedit(View view) {
+        //تبديل صفحات للدخول الى تغير معلومات الشخص
+        Intent intent = new Intent(ContentActivity.this, editemergencyperson.class);
         startActivity(intent);
     }
 }

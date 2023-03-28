@@ -37,7 +37,7 @@ public class AddEmergencyPerson extends AppCompatActivity {
     private final View.OnClickListener mSubmitOnClick = new View.OnClickListener() {
         @Override // check email
         public void onClick(View v) {
-          // بتفحص ازا فاضي وازا فاضي بتعطي مسج ازا لا بتحطو بالfirebase
+            // بتفحص ازا فاضي وازا فاضي بتعطي مسج ازا لا بتحطو بالfirebase
             if (mName.getText().toString().trim().length() == 0 ||
                     mEmail.getText().toString().trim().length() == 0
             ) {
@@ -70,8 +70,8 @@ public class AddEmergencyPerson extends AppCompatActivity {
 
     @Override //options logout - about us
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.options,menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.options, menu);
         return true;
     }
 
@@ -81,7 +81,7 @@ public class AddEmergencyPerson extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.item3: { // logout
                 Intent intent = new Intent(AddEmergencyPerson.this, MainActivity.class);
-               // عشان ازا عمل logout ميرجعش يفوت عن طريق back
+                // عشان ازا عمل logout ميرجعش يفوت عن طريق back
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 return true;
@@ -93,11 +93,23 @@ public class AddEmergencyPerson extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             }
-            //للكبسات التانيه
+            case R.id.item4: //editprofile
+                //
+            {
+                Intent intent = new Intent(AddEmergencyPerson.this, editprofile.class);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.item5: //show profiledetails
+                //
+            {
+                Intent intent = new Intent(AddEmergencyPerson.this, showprofiledetails.class);
+                startActivity(intent);
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
+        //للكبسات التانيه
     }
-
-
 }
