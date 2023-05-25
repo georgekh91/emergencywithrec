@@ -2,18 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-    <item
-        android:id="@+id/item5"
-        android:title="Profile Details"
-        app:showAsAction="never"
-        >
-    </item>
-    <item
-        android:id="@+id/item4"
-        android:title="Edit profile"
-        app:showAsAction="never"
-        >
-    </item>
+
+
 <item
     android:id="@+id/item2"
     android:title="About Us"

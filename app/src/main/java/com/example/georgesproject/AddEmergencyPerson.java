@@ -93,20 +93,6 @@ public class AddEmergencyPerson extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             }
-            case R.id.item4: //editprofile
-                //
-            {
-                Intent intent = new Intent(AddEmergencyPerson.this, editprofile.class);
-                startActivity(intent);
-                return true;
-            }
-            case R.id.item5: //show profiledetails
-                //
-            {
-                Intent intent = new Intent(AddEmergencyPerson.this, showprofiledetails.class);
-                startActivity(intent);
-                return true;
-            }
             default:
                 return super.onOptionsItemSelected(item);
         }

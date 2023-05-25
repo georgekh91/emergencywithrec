@@ -147,20 +147,7 @@ public class ContentActivity extends AppCompatActivity {
                 Intent intent = new Intent(ContentActivity.this, AboutUsActivity.class);
                 startActivity(intent);
                 return true;
-            }
-            case R.id.item4: //editprofile
-                //
-            {
-                Intent intent = new Intent(ContentActivity.this, editprofile.class);
-                startActivity(intent);
-                return true;
-            }
-            case R.id.item5: //show profiledetails
-                //
-            {
-                Intent intent = new Intent(ContentActivity.this, showprofiledetails.class);
-                startActivity(intent);
-                return true;
+
             }
             default:
                 return super.onOptionsItemSelected(item);
@@ -323,9 +310,4 @@ public class ContentActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickedit(View view) {
-        //تبديل صفحات للدخول الى تغير معلومات الشخص
-        Intent intent = new Intent(ContentActivity.this, editemergencyperson.class);
-        startActivity(intent);
-    }
 }
