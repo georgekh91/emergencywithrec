@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.content.Context;
@@ -147,7 +148,13 @@ public class ContentActivity extends AppCompatActivity {
                 Intent intent = new Intent(ContentActivity.this, AboutUsActivity.class);
                 startActivity(intent);
                 return true;
-
+            }
+                case R.id.item4: //history الموجوده في الثلاث نقاط
+                {
+                    // انتقال صفحات
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.framelayout, new history());
+                    ft.commit();
             }
             default:
                 return super.onOptionsItemSelected(item);

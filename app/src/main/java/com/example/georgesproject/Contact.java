@@ -9,6 +9,10 @@ public class Contact {
         this.email = email;
     }
 
+    public static Contact get(int position) {
+        return null;
+    }
+
     public String getName() {
         return name;
     }
