@@ -1,10 +1,17 @@
 package com.example.georgesproject;
 
 public class Contact {
-    private final String name;
-    private final String email;
 
-    public Contact(String name, String email) {
+    private String key;
+    private String name;
+    private String email;
+
+    private Long lastSentEmailTime;
+
+    public Contact() {}
+
+    public Contact(String key, String name, String email) {
+        this.key = key;
         this.name = name;
         this.email = email;
     }
@@ -21,9 +28,27 @@ public class Contact {
         return email;
     }
 
-    public int getImageResourceId() {
-        int[] imageIds = {R.drawable.contact_image_1, R.drawable.contact_image_2, R.drawable.contact_image_3};
-        int index = Math.abs(name.hashCode()) % imageIds.length;
-        return imageIds[index];
+    public String getKey() {
+        return key;
+    }
+
+    public Long getLastSentEmailTime() {
+        return lastSentEmailTime;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public void setLastSentEmailTime(Long lastSentEmailTime) {
+        this.lastSentEmailTime = lastSentEmailTime;
     }
 }

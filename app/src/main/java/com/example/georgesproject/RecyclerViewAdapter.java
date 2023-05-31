@@ -10,10 +10,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<Contact> contacts;
+
+    private static final String DATE_FORMAT_PATTERN = "d MMM yyyy HH:mm";
 
     public RecyclerViewAdapter(List<Contact> contacts) {
         this.contacts = contacts;
@@ -66,15 +73,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             context = itemView.getContext();
         }
 
-        public String getCurrentTimeFromPreferences() {
-            SharedPreferences preferences = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-            return preferences.getString("currentTime", "");
-        }
-
         public void bind(Contact sign) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_PATTERN, Locale.getDefault());
+            dateFormat.setTimeZone(TimeZone.getDefault());
+            String formattedDateTime;
+
+            if (sign.getLastSentEmailTime() == null) {
+                formattedDateTime = "No emails sent.";
+            } else {
+                formattedDateTime = dateFormat.format(new Date(sign.getLastSentEmailTime()));
+            }
+
             textView1.setText(sign.getName());
             textView3.setText(sign.getEmail());
-            textView5.setText(getCurrentTimeFromPreferences());
+            textView5.setText(formattedDateTime);
         }
     }
 }

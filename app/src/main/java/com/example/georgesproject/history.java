@@ -2,6 +2,9 @@ package com.example.georgesproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,12 +28,17 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  * Use the {@link history#newInstance} factory method to
  * create an instance of this fragment.
- *
  */
 public class history extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
-    private DatabaseReference myDataRef;
+
+    private static final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+    private static final FirebaseDatabase db = FirebaseDatabase.getInstance();
+
+    private static final DatabaseReference contactsRef = db.getReference("contacts");
+
     private View view; // Add this line
 
     @Override
@@ -39,6 +49,10 @@ public class history extends Fragment {
     }
 
     private void attach() {
+        if (mAuth.getCurrentUser() == null) {
+            return;
+        }
+
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -46,17 +60,13 @@ public class history extends Fragment {
         recyclerViewAdapter = new RecyclerViewAdapter(new ArrayList<>());
         recyclerView.setAdapter(recyclerViewAdapter);
 
-        // Retrieve data from Firebase Realtime Database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myDataRef = database.getReference("Contact");
-
-        myDataRef.addValueEventListener(new ValueEventListener() {
+        contactsRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Contact> newDataList = new ArrayList<>();
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Contact data = snapshot.getValue(Contact.class);
+                for (DataSnapshot child : snapshot.getChildren()) {
+                    Contact data = child.getValue(Contact.class);
                     newDataList.add(data);
                 }
 
@@ -65,12 +75,12 @@ public class history extends Fragment {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Handle database errors if needed
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
-
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -107,7 +117,6 @@ public class history extends Fragment {
 
     public history() {
         // Required empty public constructor
-
     }
 
     @Override

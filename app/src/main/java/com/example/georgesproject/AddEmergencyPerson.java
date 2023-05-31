@@ -50,9 +50,14 @@ public class AddEmergencyPerson extends AppCompatActivity {
                 return;
             }
 
+            final DatabaseReference newItemRef = contactsRef.child(mAuth.getCurrentUser().getUid()).push();
+
+            final String contactName = mName.getText().toString();
+            final String contactEmail = mEmail.getText().toString();
+            final String contactKey = newItemRef.getKey();
+
             // push means we have a list, and we want to add to the list.
-            DatabaseReference newItemRef = contactsRef.child(mAuth.getCurrentUser().getUid()).push();
-            newItemRef.setValue(new EmergencyPerson(mName.getText().toString(), mEmail.getText().toString()));
+            newItemRef.setValue(new Contact(contactKey, contactName, contactEmail));
         }
     };
 

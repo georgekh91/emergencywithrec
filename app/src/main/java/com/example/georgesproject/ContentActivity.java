@@ -32,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -84,25 +85,14 @@ public class ContentActivity extends AppCompatActivity {
         contactsRef.child(mAuth.getCurrentUser().getUid()).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String name = null, email = null;
+                Contact contact = snapshot.getValue(Contact.class);
 
-                for (DataSnapshot child : snapshot.getChildren()) {
-                    if (child.getKey() == null) {
-                        continue;
-                    }
-
-                    if (child.getKey().equals("name")) {
-                        name = child.getValue(String.class);
-                    } else if (child.getKey().equals("email")) {
-                        email = child.getValue(String.class);
-                    }
+                if (contact == null) {
+                    return;
                 }
 
-                if (name != null && email != null) {
-                    Contact contact = new Contact(name, email);
-                    contactList.add(contact);
-                    contactsView.addView(new ContactView(getApplicationContext(), contact));
-                }
+                contactList.add(contact);
+                contactsView.addView(new ContactView(getApplicationContext(), contact));
             }
 
             @Override
@@ -270,7 +260,20 @@ public class ContentActivity extends AppCompatActivity {
                     googleMapsLink
             );
             EmailUtils.sendEmail(contact.getEmail(), emailBody);
+
+            updateLastSentEmailTime(contact);
         }
+    }
+
+    private void updateLastSentEmailTime(Contact contact) {
+        if (mAuth.getCurrentUser() == null) {
+            return;
+        }
+
+        final DatabaseReference contactRef = contactsRef.child(mAuth.getCurrentUser().getUid()).child(contact.getKey());
+        contact.setLastSentEmailTime(new Date().getTime());
+
+        contactRef.setValue(contact);
     }
 
     public void onSaveinstancestate(Bundle savedInstanceState) {
