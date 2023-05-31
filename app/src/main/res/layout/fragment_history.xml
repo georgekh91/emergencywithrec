@@ -6,9 +6,6 @@
     android:background="@drawable/ss"
     tools:context=".history">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
@@ -17,46 +14,17 @@
         android:layout_marginEnd="150dp"
         android:layout_marginTop="0dp"
         android:fontFamily="serif-monospace"
-        android:text="HIStory"
+        android:text="History"
         android:textColor="#000000"
-
         android:textSize="24sp" />
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/name"
+        android:layout_height="match_parent"
         android:layout_marginStart="150dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="150dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="40dp"
-        android:textSize="20dp"
-        tools:text="Name"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="80dp"
-        android:id="@+id/email"
-        android:layout_below="@id/name"
-        android:textColor="@color/black"
-        tools:text="emial@email.com"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="150dp"
-        android:id="@+id/time"
-        android:layout_marginTop="60dp"
-        android:layout_below="@id/name"
-        android:textColor="@color/black"
-        tools:text="time"/>
-
-
-
-
+        />
 
 </RelativeLayout>

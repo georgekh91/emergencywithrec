@@ -149,17 +149,18 @@ public class ContentActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             }
-                case R.id.item4: //history الموجوده في الثلاث نقاط
-                {
-                    // انتقال صفحات
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.framelayout, new history());
-                    ft.commit();
+            case R.id.item4: //history الموجودة في الثلاث نقاط
+            {
+                // انتقال صفحات
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.framelayout, new history());
+                ft.commit();
+                return true;
             }
             default:
+                // Handle other menu items if needed
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     // تشغيل التايمر
